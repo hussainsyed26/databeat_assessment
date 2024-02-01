@@ -62,11 +62,14 @@ def count_components(adjacency, rows, columns, matrix):
 
 
 if __name__ == "__main__":
-    # Get input for adjacency type, number of rows, and number of columns
-    adjacency_type = int(input())
-    rows, columns = map(int, input().split())
+    # Get input for adjacency type
+    adjacency_type = int(input("Enter the type of adjacency (1-5) (1 - horizontal; 2 - vertical; 3 - diagonal; 4 - Horizontal_Vertical; 5 - all directions): "))
+
+    # Get input for matrix size
+    rows, columns = map(int, input("Enter the number of rows and columns (separated by space): ").split())
 
     # Get the matrix input
+    print("Enter the matrix rows (separated by spaces) individually :")
     matrix = []
     for _ in range(rows):
         row = list(map(int, input().split()))
@@ -74,8 +77,7 @@ if __name__ == "__main__":
 
     # Calculate and print the total number of connected components
     total_components = count_components(adjacency_type, rows, columns, matrix)
-    print(total_components)
-
+    print("Total connected components:", total_components)
+    
     # Keep the console window open until the user presses Enter
     input("Press Enter to exit...")
-
